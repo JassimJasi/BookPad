@@ -1,0 +1,22 @@
+.home {
+  min-height: 100vh;
+  background: var(--bg-secondary);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  .home_middle {
+    margin-top: 75px;
+    margin-left: 31.8vw;
+    @media screen and (max-width: 1420px) {
+      transform: translateX(-75px);
+    }
+    @media screen and (max-width: 1275px) {
+      transform: translateX(-100px);
+    }
+    @media screen and (max-width: 900px) {
+      transform: translateX(-110px);
+    }
+    @media screen and (max-width: 850px) {
+      transform: translateX(-130px);
+    }
+  }
+}

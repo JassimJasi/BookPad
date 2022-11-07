@@ -1,0 +1,63 @@
+.right_home {
+  position: fixed;
+  left: 80.7vw;
+  top: 4rem;
+  width: 17vw;
+  @media screen and (max-width: 850px) {
+    width: 13vw;
+  }
+  .splitter1 {
+    height: 1.3px;
+    background: var(--divider);
+    width: 17vw;
+    margin: 6px 2px 0 12px;
+  }
+  .contacts_list {
+    padding: 5px;
+  }
+  .contacts_header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0 7px 10px;
+    font-weight: 600;
+    color: var(--color-secondary);
+  }
+  .OnlineDot {
+    position: absolute;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+    top: 66px;
+    border-radius: 50%;
+
+    background: var(--green-color);
+    @media screen and (max-width: 1200px) {
+      right: 2px;
+    }
+  }
+}
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--color-primary);
+  font-weight: 600;
+  img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  span {
+    transform: translateY(-5px);
+    @media screen and (max-width: 730px) {
+      display: none;
+    }
+  }
+}

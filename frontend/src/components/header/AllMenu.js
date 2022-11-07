@@ -12,17 +12,6 @@ export default function AllMenu() {
             <input type="text" placeholder="Search menu" />
           </div>
           <div className="all_menu_group">
-            <div className="all_menu_group_header">Social</div>
-            {menu.slice(0, 6).map((item, i) => (
-              <AllMenuItems
-                name={item.name}
-                description={item.description}
-                icon={item.icon}
-                key={i}
-              />
-            ))}
-          </div>
-          <div className="all_menu_group">
             <div className="all_menu_group_header">Eniertainment</div>
             {menu.slice(6, 9).map((item, i) => (
               <AllMenuItems
@@ -34,19 +23,8 @@ export default function AllMenu() {
             ))}
           </div>
           <div className="all_menu_group">
-            <div className="all_menu_group_header">Shopping</div>
+            <div className="all_menu_group_header">Prime Account</div>
             {menu.slice(9, 11).map((item, i) => (
-              <AllMenuItems
-                name={item.name}
-                description={item.description}
-                icon={item.icon}
-                key={i}
-              />
-            ))}
-          </div>
-          <div className="all_menu_group">
-            <div className="all_menu_group_header">Personal</div>
-            {menu.slice(11, 15).map((item, i) => (
               <AllMenuItems
                 name={item.name}
                 description={item.description}
@@ -67,6 +45,18 @@ export default function AllMenu() {
             ))}
           </div>
           <div className="all_menu_group">
+            <div className="all_menu_group_header">Up Coming...</div>
+            {menu.slice(0, 6).map((item, i) => (
+              <AllMenuItems
+                name={item.name}
+                description={item.description}
+                icon={item.icon}
+                key={i}
+              />
+            ))}
+          </div>
+
+          <div className="all_menu_group">
             <div className="all_menu_group_header">Community Resources</div>
             {menu.slice(17, 21).map((item, i) => (
               <AllMenuItems
@@ -79,7 +69,7 @@ export default function AllMenu() {
           </div>
           <div className="all_menu_group">
             <div className="all_menu_group_header">More</div>
-            {menu.slice(21, 23).map((item, i) => (
+            {menu.slice(21, 22).map((item, i) => (
               <AllMenuItems
                 name={item.name}
                 description={item.description}

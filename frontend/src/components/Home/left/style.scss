@@ -9,6 +9,9 @@
   padding: 15px 0;
   padding-bottom: 5rem;
   // user-select: none;
+  @media screen and (max-width: 900px) {
+    width: 10vw;
+  }
   .left_link {
     display: flex;
     align-items: center;
@@ -28,32 +31,47 @@
     span {
       margin-bottom: 4px;
       margin-left: 1px;
+      @media screen and (max-width: 850px) {
+        display: none;
+      }
     }
 
-    // .col {
-    //   margin-left: 2px;
-    //   transform: translateY(-2px);
-    //   .col_1 {
-    //     transform: translateX(-1px);
-    //   }
-    //   .col_2 {
-    //     position: relative;
-    //     font-size: 12px;
-    //     color: var(--blue-color);
-    //     margin-left: 9px;
-    //     margin-top: 2px;
-    //     font-weight: normal;
-    //     &::before {
-    //       content: "";
-    //       width: 7px;
-    //       height: 7px;
-    //       border-radius: 50%;
-    //       background: var(--blue-color);
-    //       position: absolute;
-    //       left: -10px;
-    //       bottom: 2px;
-    //     }
-    //   }
-    // }
+    .col {
+      margin-left: 2px;
+      transform: translateY(-2px);
+      .col_1 {
+        transform: translateX(-1px);
+      }
+      .col_2 {
+        position: relative;
+        font-size: 12px;
+        color: var(--blue-color);
+        margin-left: 9px;
+        margin-top: 2px;
+        font-weight: normal;
+        &::before {
+          content: "";
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: var(--blue-color);
+          position: absolute;
+          left: -10px;
+          bottom: 2px;
+        }
+      }
+    }
+  }
+  .fb_copyright {
+    position: fixed;
+    bottom: 14px;
+    left: 10px;
+    font-size: 12px;
+    color: var(--color-secondary);
+    width: 15vw;
+    padding-bottom: 5px;
+    @media screen and (max-width: 850px) {
+      display: none;
+    }
   }
 }

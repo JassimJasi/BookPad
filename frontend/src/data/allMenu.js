@@ -11,9 +11,9 @@ export const menu = [
       "Organize or find events and other things to do online and nearby.",
   },
   {
-    name: "Find Friends",
+    name: "Near Me",
     icon: "friends",
-    description: "Search for friends or people you may know.",
+    description: "Find near by friends or people you may know.",
   },
   {
     name: "Groups",
@@ -47,14 +47,14 @@ export const menu = [
       "A video destination personalized to your interests and connections.",
   },
   {
-    name: "Facebook Pay",
+    name: "UPI Pay",
     icon: "pay",
-    description: "A seamless, secure way to pay on the apps you already use.",
+    description: "Buy prime account to expoler more",
   },
   {
-    name: "Marketplace",
+    name: "More...",
     icon: "marketplace",
-    description: "Buy and sell in your community.",
+    description: "More about Prime Account.",
   },
   {
     name: "Recent Ad Activity",
@@ -110,7 +110,7 @@ export const menu = [
     description: "Donate and raise money for nonprofits and personal causes.",
   },
   {
-    name: "Messenger",
+    name: "Messang",
     icon: "messenger",
     description: "Chat instantly with your friends and connections.",
   },
@@ -141,21 +141,5 @@ export const create = [
   {
     name: "Ad",
     icon: "m_ad_icon",
-  },
-  {
-    name: "Group",
-    icon: "m_group_icon",
-  },
-  {
-    name: "Event",
-    icon: "m_event_icon",
-  },
-  {
-    name: "Marketplace Listing",
-    icon: "m_post_mar",
-  },
-  {
-    name: "Job",
-    icon: "m_post_job",
   },
 ];

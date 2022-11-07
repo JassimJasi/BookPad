@@ -79,9 +79,9 @@ function Header() {
           <Watch color={color} />
           <div className="middle_notification">9+</div>
         </Link>
-        <Link to={"/"} className="middle_icon hover1">
+        {/* <Link to={"/"} className="middle_icon hover1">
           <Market color={color} />
-        </Link>
+        </Link> */}
         <Link to={"/"} className="middle_icon hover1">
           <Gaming color={color} />
         </Link>

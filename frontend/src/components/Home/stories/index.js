@@ -18,7 +18,7 @@ export default function Stories() {
         <div className="story_create_text">Create Story</div>
       </div>
       {stories.map((story, i) => (
-        <Story story={story} />
+        <Story story={story} key={i} />
       ))}
       <div className="white_circle">
         <ArrowRight color="#65676b" />

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import CreatePost from "../../components/createPost";
+import CreatePost from "../../components/createPost/Index";
 import Header from "../../components/header";
 import LeftHome from "../../components/Home/left";
 import RightHome from "../../components/Home/right";

@@ -81,9 +81,14 @@ export default function Reset() {
         {visible === 2 && (
           <CodeVerification
             user={user}
+            userInfos={userInfos}
             code={code}
             setCode={setCode}
+            loading={loading}
             error={error}
+            setError={setError}
+            setLoading={setLoading}
+            setVisible={setVisible}
           />
         )}
         {visible === 3 && (
@@ -92,6 +97,11 @@ export default function Reset() {
             conf_password={conf_password}
             setConf_password={setConf_password}
             setPassword={setPassword}
+            error={error}
+            setError={setError}
+            setLoading={setLoading}
+            setVisible={setVisible}
+            userInfos={userInfos}
           />
         )}
       </div>

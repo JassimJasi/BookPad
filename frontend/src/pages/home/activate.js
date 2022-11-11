@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import CreatePost from "../../components/createPost";
+import CreatePost from "../../components/createPost/Index";
 import Header from "../../components/header";
 import LeftHome from "../../components/Home/left";
 import RightHome from "../../components/Home/right";

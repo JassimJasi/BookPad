@@ -4,10 +4,12 @@ const {
   validateUserName,
 } = require("../helpers/validation");
 const User = require("../models/User");
+const Code = require("../models/Code");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { generateToken } = require("../helpers/token");
-const { sendVerificationEmail } = require("../helpers/mailer");
+const { sendVerificationEmail, sendResetCode } = require("../helpers/mailer");
+const generateCode = require("../helpers/generateCode");
 
 exports.register = async (req, res) => {
   try {
@@ -71,7 +73,7 @@ exports.register = async (req, res) => {
       "30m"
     );
     const url = `${process.env.BASE_URL}/activate/${emailVerificationToken}`;
-    sendVerificationEmail(user.email, user.first_name, url);
+    sendVerificationEmail(user.email, user.first_name, url); //used to send verification file to mail
 
     const token = generateToken({ id: user._id.toString() }, "7d");
     res.send({
@@ -91,9 +93,16 @@ exports.register = async (req, res) => {
 //activate account
 exports.activateAccount = async (req, res) => {
   try {
+    const validUser = req.user.id;
     const { token } = req.body;
     const user = jwt.verify(token, process.env.TOKEN_SECRET);
     const check = await User.findById(user.id);
+
+    if (validUser !== user.id) {
+      return res.status(400).json({
+        message: "You don't have the authorization to complete this operation ",
+      });
+    }
     if (check.verified == true) {
       return res
         .status(400)
@@ -133,6 +142,56 @@ exports.login = async (req, res) => {
       verified: user.verified,
       //message: "Login Success",
     });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+//resend email verification code
+exports.sendVerification = async (req, res) => {
+  try {
+    const id = req.user.id; //we get req/user.id from the authUser middlwares
+    const user = await User.findById(id);
+    if (user.verified === true) {
+      return res.status(400).json({ message: "Account already activated" });
+    }
+    const emailVerificationToken = generateToken(
+      { id: user._id.toString() },
+      "30m"
+    ); //used to re-send verification file to mail
+    const url = `${process.env.BASE_URL}/activate/${emailVerificationToken}`;
+    sendVerificationEmail(user.email, user.first_name, url);
+    return res
+      .status(200)
+      .json({ message: "Email verification code has been send to your email" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+//find user
+exports.findUser = async (req, res) => {
+  try {
+    const { email } = req.body;
+    const user = await User.findOne({ email }).select("-password");
+    if (!user) {
+      return res.status(400).json({ message: "Account does not exists." });
+    }
+    return res.status(200).json({ email: user.email, picture: user.picture });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+exports.sendResetPasswordCode = async (req, res) => {
+  try {
+    const { email } = req.body;
+    const user = await User.findOne({ email }).select("-password");
+    await Code.findOneAndRemove({ user: user._id });
+    const code = generateCode(5); //to generate new code
+    const saveCode = await new Code({
+      code,
+      user: user._id,
+    }); //adding to db
+    sendResetCode(user.email, user.first_name, code);
+    res.status(200).json({ message: "Reset code has been send to your email" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

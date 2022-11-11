@@ -1,6 +1,6 @@
 import PropagateLoader from "react-spinners/PropagateLoader";
 
-export default function ActivateForm({ type, header, text, loading }) {
+export default function ActivateForm({ type, header, text, loading, color }) {
   return (
     <div className="blur">
       <div className="popup">
@@ -12,7 +12,7 @@ export default function ActivateForm({ type, header, text, loading }) {
           {header}
         </div>
         <div className="popup_message">{text}</div>
-        <PropagateLoader color="#32CD32" size={20} loading={loading} />
+        <PropagateLoader color={color} size={20} loading={loading} />
       </div>
     </div>
   );

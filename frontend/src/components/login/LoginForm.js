@@ -1,6 +1,6 @@
 import { Form, Formik } from "formik";
 import { Link } from "react-router-dom";
-import LoginInput from "../../components/inputs/login";
+import LoginInput from "../../components/inputs/loginInput";
 import { useState } from "react";
 import * as Yup from "yup";
 import BeatLoader from "react-spinners/BeatLoader";
@@ -101,7 +101,7 @@ function LoginForm({ setVisible }) {
             <BeatLoader color="#1876f2" loading={loading} size={10} />
           )}
           {error && <div className="error_text">{error}</div>}
-          <Link to="/forgot" className="forgot_password">
+          <Link to="/reset" className="forgot_password">
             Forgotten password?
           </Link>
           <div className="sign_splitter"></div>

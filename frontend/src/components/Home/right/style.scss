@@ -6,6 +6,9 @@
   @media screen and (max-width: 850px) {
     width: 13vw;
   }
+  @media screen and (max-width: 645px) {
+    display: none;
+  }
   .splitter1 {
     height: 1.3px;
     background: var(--divider);

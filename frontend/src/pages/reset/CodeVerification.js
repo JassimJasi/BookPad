@@ -1,7 +1,7 @@
 import { Form, Formik } from "formik";
-import { useState } from "react";
+//import { useState } from "react";
 import { Link } from "react-router-dom";
-import LoginInput from "../../components/inputs/loginInput";
+import LoginInput from "../../components/inputs/loginInput/Index";
 import * as Yup from "yup";
 import axios from "axios";
 export default function CodeVerification({
@@ -9,7 +9,6 @@ export default function CodeVerification({
   setCode,
   error,
   setError,
-  loading,
   setLoading,
   setVisible,
   userInfos,

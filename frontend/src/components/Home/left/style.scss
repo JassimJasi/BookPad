@@ -12,6 +12,9 @@
   @media screen and (max-width: 900px) {
     width: 10vw;
   }
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
   .left_link {
     display: flex;
     align-items: center;

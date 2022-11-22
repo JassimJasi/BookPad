@@ -1,6 +1,6 @@
 import { Form, Formik } from "formik";
 import { Link } from "react-router-dom";
-import LoginInput from "../../components/inputs/loginInput";
+import LoginInput from "../../components/inputs/loginInput/Index";
 import * as Yup from "yup";
 import axios from "axios";
 

@@ -4,6 +4,7 @@ import {
   ArrowDown,
   Friends,
   Gaming,
+  Home,
   HomeActive,
   Logo,
   Menu,
@@ -19,7 +20,7 @@ import AllMenu from "./AllMenu";
 import useClickOutside from "../../helpers/clickOutside";
 import UserMenu from "./userMenu/Index";
 
-function Header() {
+function Header({ page }) {
   const { user } = useSelector((user) => ({ ...user }));
   //console.log(user);
 
@@ -68,8 +69,11 @@ function Header() {
       )}
 
       <div className="header_middle">
-        <Link to={"/"} className="middle_icon active">
-          <HomeActive />
+        <Link
+          to={"/"}
+          className={`middle_icon ${page === "home" ? "active" : "hover1"}`}
+        >
+          {page === "home" ? <HomeActive /> : <Home color={color} />}
         </Link>
         <Link to={"/"} className="middle_icon hover1">
           <Friends color={color} />
@@ -86,7 +90,12 @@ function Header() {
         </Link>
       </div>
       <div className="header_right">
-        <Link to={"/profile"} className="profile_link hover1">
+        <Link
+          to={"/profile"}
+          className={`profile_link hover1 ${
+            page === "profile" ? "active_link" : ""
+          }`}
+        >
           <img src={user?.picture} alt="" />
           <span>{user?.first_name}</span>
         </Link>

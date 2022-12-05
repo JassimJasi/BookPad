@@ -174,10 +174,6 @@
       gap: 8px;
       padding: 0 18px;
       margin-bottom: 7px;
-
-      .invert {
-        filter: invert(100%);
-      }
     }
   }
   /*--Menu---*/
@@ -278,11 +274,7 @@
         }
 
         /*--Menu grid---*/
-        .flex {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
+
         .grid2 {
           display: grid;
           grid-template-columns: repeat(2, 1fr) !important;
@@ -350,6 +342,10 @@
               height: 105px;
               object-fit: cover;
               border-radius: 10px;
+            }
+            span {
+              color: var(--color-primary);
+              font-size: 14px;
             }
           }
         }
@@ -440,5 +436,32 @@
   .selectCoverBox_link:first-of-type {
     color: var(--blue-color);
     border-bottom: 3px solid var(--blue-color);
+  }
+}
+.invert {
+  filter: invert(100%);
+}
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+/*-------friendShip----------*/
+.friendship {
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  @media screen and (max-width: 950px) {
+    transform: translateY(-2.5rem);
+  }
+  @media screen and (min-width: 900px) {
+    transform: translateX(-2rem);
+  }
+  @media screen and (max-width: 400px) {
+    flex-direction: column;
+  }
+  .blue_btn {
+    height: 35px;
   }
 }

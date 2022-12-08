@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function Friends({ friends }) {
-  console.log(friends);
+  // console.log(friends);
   return (
     <div className="profile_card">
       <div className="profile_card_header">

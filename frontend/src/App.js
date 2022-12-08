@@ -21,7 +21,6 @@ function App() {
     posts: [],
     error: "",
   });
-
   useEffect(() => {
     getAllPosts();
   }, []);

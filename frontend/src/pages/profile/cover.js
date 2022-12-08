@@ -96,6 +96,7 @@ export default function Cover({ cover, visitor, photos }) {
         if (new_post === "Done") {
           setLoading(false);
           setCoverPicture("");
+          // console.log("aaaaaa", res[0].url);
           cRef.current.src = res[0].url;
         } else {
           setLoading(false);

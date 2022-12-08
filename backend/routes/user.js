@@ -9,6 +9,7 @@ const {
   validateResetCode,
   changePassword,
   getProfile,
+  getProfileById,
   updateProfilePicture,
   updateCover,
   addFriend,
@@ -18,6 +19,7 @@ const {
   acceptRequest,
   unfriend,
   deleteRequest,
+  getFriends,
 } = require("../controllers/user");
 const { authUser } = require("../middlwares/auth");
 
@@ -32,6 +34,7 @@ router.post("/sendResetPasswordCode", sendResetPasswordCode); //for sending pass
 router.post("/validateResetCode", validateResetCode); //for validate reset code
 router.post("/changePassword", changePassword); //for changeing password
 router.get("/getProfile/:username", authUser, getProfile); //get profile
+router.get("/getProfileId/:id", getProfileById); //get profile by id
 router.put("/updateProfilePicture", authUser, updateProfilePicture);
 router.put("/updateCover", authUser, updateCover);
 router.put("/addFriend/:id", authUser, addFriend);
@@ -41,5 +44,6 @@ router.put("/unfollow/:id", authUser, unfollow);
 router.put("/acceptRequest/:id", authUser, acceptRequest);
 router.put("/unfriend/:id", authUser, unfriend);
 router.put("/deleteRequest/:id", authUser, deleteRequest);
+router.get("/friends/:id", getFriends);
 
 module.exports = router;

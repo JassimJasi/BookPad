@@ -33,7 +33,17 @@ export default function ProfielPictureInfos({ profile, visitor, photos }) {
             {profile.first_name} {profile.last_name}
             {/* <div className="othername">(Othername)</div> */}
           </div>
-          <div className="profile_friend_count"></div>
+          <div className="profile_friend_count">
+            {profile?.friends && (
+              <div className="profile_card_count">
+                {profile?.friends.length === 0
+                  ? ""
+                  : profile?.friends.length === 1
+                  ? "1 Friend"
+                  : `${profile?.friends.length} Friends`}
+              </div>
+            )}
+          </div>
           <div className="profile_friend_imgs"></div>
         </div>
       </div>

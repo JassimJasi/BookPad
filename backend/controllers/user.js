@@ -141,6 +141,7 @@ exports.login = async (req, res) => {
       last_name: user.last_name,
       token: token,
       verified: user.verified,
+      friends: user.friends,
       //message: "Login Success",
     });
   } catch (error) {
@@ -260,6 +261,16 @@ exports.getProfile = async (req, res) => {
       .sort({ createdAt: -1 });
     await profile.populate("friends", "first_name last_name username picture");
     res.json({ ...profile.toObject(), posts, friendship });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+// get profile by id
+exports.getProfileById = async (req, res) => {
+  try {
+    const profileId = req.params.id;
+    const respp = await User.findById(req.params.id).select("-password");
+    res.json(respp);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -494,6 +505,25 @@ exports.deleteRequest = async (req, res) => {
     } else {
       res.status(400).json({ message: "You can't delete yourself" });
     }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+exports.getFriends = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    const friends = await Promise.all(
+      user.friends.map((friendId) => {
+        return User.findById(friendId);
+      })
+    );
+    let friendList = [];
+    friends.map((friend) => {
+      const { _id, first_name, last_name, picture } = friend;
+      friendList.push({ _id, first_name, last_name, picture });
+    });
+    // console.log("****", friendList);
+    res.status(200).json(friendList);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

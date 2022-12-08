@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useReducer, useState } from "react";
 import axios from "axios";
 import { postsReducer } from "./functions/reducers";
+import Messenger from "./pages/messenger/Messenger";
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -66,6 +67,7 @@ function App() {
             element={<Profile setVisible={setVisible} />}
             exact
           />
+          <Route path="/messenger" element={<Messenger />} exact />
           <Route
             path="/"
             element={<Home setVisible={setVisible} posts={posts} />}

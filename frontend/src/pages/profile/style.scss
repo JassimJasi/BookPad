@@ -446,6 +446,11 @@
   align-items: center;
   gap: 10px;
 }
+.profile_friend_count {
+  text-align: center;
+  transform: translateY(-10px);
+  font-weight: 600;
+}
 /*-------friendShip----------*/
 .friendship {
   z-index: 9;

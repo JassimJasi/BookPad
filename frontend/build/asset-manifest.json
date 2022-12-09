@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.084b6ea1.css",
+    "main.js": "/static/js/main.e52614dd.js",
+    "static/media/icons14.png": "/static/media/icons14.91a88007ea2210f6443f.png",
+    "static/media/icons12.png": "/static/media/icons12.2e0c15a0f3c5dc71befc.png",
+    "static/media/icons25.png": "/static/media/icons25.e417e896bce9fd79143a.png",
+    "static/media/icons22.png": "/static/media/icons22.f8d9bef058882dd989d5.png",
+    "static/media/icons29.png": "/static/media/icons29.2c57b074a422dd9add48.png",
+    "static/media/icons34.png": "/static/media/icons34.5242d0d40aa440234d1e.png",
+    "static/media/icons6.png": "/static/media/icons6.793d87b8ffe818e0431a.png",
+    "static/media/icons20.png": "/static/media/icons20.4b42575c0ce2394a64ef.png",
+    "static/media/icons7.png": "/static/media/icons7.c27f93aded51f1b11d69.png",
+    "static/media/icons18.png": "/static/media/icons18.6cffd8045e3fcf462167.png",
+    "static/media/icons2.png": "/static/media/icons2.f9ffd2dce564e10a01d9.png",
+    "static/media/icons5.png": "/static/media/icons5.3b772f30f229ba08c05b.png",
+    "index.html": "/index.html",
+    "main.084b6ea1.css.map": "/static/css/main.084b6ea1.css.map",
+    "main.e52614dd.js.map": "/static/js/main.e52614dd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.084b6ea1.css",
+    "static/js/main.e52614dd.js"
+  ]
+}

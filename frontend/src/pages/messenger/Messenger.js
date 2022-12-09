@@ -22,7 +22,7 @@ export default function Messenger() {
   //console.log("kkk", user);
 
   useEffect(() => {
-    socket.current = io("ws://localhost:8900");
+    socket.current = io("http://localhost:8000");
 
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({

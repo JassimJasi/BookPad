@@ -23,6 +23,7 @@ export default function Friends({ friends }) {
             <Link
               to={`/profile/${friend.username}`}
               className="profile_photo_card"
+              key={i}
             >
               <img src={friend.picture} alt="" />
               <span>

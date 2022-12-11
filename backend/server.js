@@ -11,8 +11,12 @@ const app = express();
 //   origin: "http://localhost:3000",
 //   useSuccessStatus: 200,
 // };
+const options = {
+  origin: "*",
+  useSuccessStatus: 200,
+};
 app.use(express.json());
-app.use(cors());
+app.use(cors(options));
 app.use(
   fileUpload({
     useTempFiles: true,

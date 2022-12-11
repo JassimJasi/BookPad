@@ -11,7 +11,7 @@ export default function ChatOnline({
   const [friends, setFriends] = useState([]);
   const [onlineFriends, setOnlineFriends] = useState([]);
   //const { user } = useSelector((state) => ({ ...state }));
-
+  //console.log("friend", friends);
   useEffect(() => {
     const getFriends = async () => {
       const res = await axios.get(
@@ -20,7 +20,7 @@ export default function ChatOnline({
       setFriends(res.data);
     };
     getFriends();
-  }, [currentId]);
+  }, [currentId, onlineUsers]);
 
   useEffect(() => {
     setOnlineFriends(friends.filter((f) => onlineUsers.includes(f._id)));
@@ -49,17 +49,29 @@ export default function ChatOnline({
 
   return (
     <div className="chatOnline">
-      {onlineFriends.map((o) => (
-        <div className="chatOnlineFriend" onClick={() => handleClick(o)}>
-          <div className="chatOnlineImgContainer">
-            <img className="chatOnlineImg" src={o?.picture} alt="" />
-            <div className="chatOnlineBadge"></div>
-          </div>
-          <span className="chatOnlineName">
-            {o?.first_name} {o?.last_name}
-          </span>
-        </div>
-      ))}
+      {!onlineFriends
+        ? friends.map((o) => (
+            <div className="chatOnlineFriend" onClick={() => handleClick(o)}>
+              <div className="chatOnlineImgContainer">
+                <img className="chatOnlineImg" src={o?.picture} alt="" />
+                {/* <div className="chatOnlineBadge"></div> */}
+              </div>
+              <span className="chatOnlineName">
+                {o?.first_name} {o?.last_name}
+              </span>
+            </div>
+          ))
+        : onlineFriends.map((o) => (
+            <div className="chatOnlineFriend" onClick={() => handleClick(o)}>
+              <div className="chatOnlineImgContainer">
+                <img className="chatOnlineImg" src={o?.picture} alt="" />
+                <div className="chatOnlineBadge"></div>
+              </div>
+              <span className="chatOnlineName">
+                {o?.first_name} {o?.last_name}
+              </span>
+            </div>
+          ))}
     </div>
   );
 }
